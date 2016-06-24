@@ -1,0 +1,51 @@
+{
+	"boards": {
+		"technology": {
+			"name": "Technology",
+			"id": "1",
+			"icon": ""
+		}
+	},
+
+	"users": {
+		"1": {
+			"id": "1",
+			"names": {
+
+				},
+			"emails": {
+
+				},
+			"flags": {
+
+				},
+			"ip": ""
+		}
+	},
+
+	"threads": {
+		"1": {
+			"id": "1",
+			"subject": "poo",
+			"img": "",
+			"board_id": "",
+			"user_id": "",
+			"body": "loo",
+			"flag": ""
+		}
+	},
+
+	"posts": {
+		"1": {
+			"id": "1",
+			"thread_id": "",
+			"user_id": "",
+			"body": "",
+			"img": "",
+			"replied_to": {
+
+				},
+			"flag": ""
+		}
+	}
+}
