@@ -11,6 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var boards_component_1 = require('./boards.component');
 var board_service_1 = require('./board.service');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var threads_component_1 = require('./threads.component');
+var thread_service_1 = require('./thread.service');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Medium';
@@ -18,10 +21,23 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{title}}</h1>\n  <my-boards></my-boards>",
-            directives: [boards_component_1.BoardsComponent],
-            providers: [board_service_1.BoardService]
-        }), 
+            template: "<h1>{{title}}</h1>\n  <router-outlet></router-outlet>",
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            providers: [router_deprecated_1.ROUTER_PROVIDERS, board_service_1.BoardService, thread_service_1.ThreadService]
+        }),
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/boards',
+                name: 'Boards',
+                component: boards_component_1.BoardsComponent,
+                useAsDefault: true
+            },
+            {
+                path: '/threads/:board_id',
+                name: 'Threads',
+                component: threads_component_1.ThreadsComponent
+            }
+        ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;

@@ -1,6 +1,6 @@
 import { Board } from './board';
 export var BOARDS: Board[] = [
-  {id: 1, name: 'Technology'},
-  {id: 2, name: 'Games'},
-  {id: 3, name: 'Politics'}
+  {board_id: 1, name: 'Technology'},
+  {board_id: 2, name: 'Games'},
+  {board_id: 3, name: 'Politics'}
 ];

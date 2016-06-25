@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var board_service_1 = require('./board.service');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var BoardsComponent = (function () {
-    function BoardsComponent(boardService) {
+    function BoardsComponent(router, boardService) {
+        this.router = router;
         this.boardService = boardService;
     }
     BoardsComponent.prototype.getBoards = function () {
@@ -21,12 +23,16 @@ var BoardsComponent = (function () {
     BoardsComponent.prototype.ngOnInit = function () {
         this.getBoards();
     };
+    BoardsComponent.prototype.gotoCatalog = function (board) {
+        var link = ['Threads', { board_id: board.board_id }];
+        this.router.navigate(link);
+    };
     BoardsComponent = __decorate([
         core_1.Component({
             selector: 'my-boards',
-            template: "<h2>Boards</h2>\n  <ul>\n  <li *ngFor=\"let board of boards\">\n  \t<p>{{board.id}}</p>\n  \t<p>{{board.name}}</p>\n  </li>\n  </ul>"
+            template: "\n  <nav *ngFor=\"let board of boards\">\n  \t<p (click)=\"gotoCatalog(board)\">{{ board.name }}</p>\n  </nav>"
         }), 
-        __metadata('design:paramtypes', [board_service_1.BoardService])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, board_service_1.BoardService])
     ], BoardsComponent);
     return BoardsComponent;
 }());
