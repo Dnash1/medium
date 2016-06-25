@@ -9,22 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var boards_component_1 = require('./boards.component');
-var board_service_1 = require('./board.service');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Medium';
+var mock_boards_1 = require('./mock-boards');
+var BoardService = (function () {
+    function BoardService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<h1>{{title}}</h1>\n  <my-boards></my-boards>",
-            directives: [boards_component_1.BoardsComponent],
-            providers: [board_service_1.BoardService]
-        }), 
+    BoardService.prototype.getBoards = function () {
+        return Promise.resolve(mock_boards_1.BOARDS);
+    };
+    BoardService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], BoardService);
+    return BoardService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.BoardService = BoardService;
+//# sourceMappingURL=board.service.js.map

@@ -9,22 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var boards_component_1 = require('./boards.component');
 var board_service_1 = require('./board.service');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Medium';
+var BoardsComponent = (function () {
+    function BoardsComponent(boardService) {
+        this.boardService = boardService;
     }
-    AppComponent = __decorate([
+    BoardsComponent.prototype.getBoards = function () {
+        var _this = this;
+        this.boardService.getBoards().then(function (boards) { return _this.boards = boards; });
+    };
+    BoardsComponent.prototype.ngOnInit = function () {
+        this.getBoards();
+    };
+    BoardsComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<h1>{{title}}</h1>\n  <my-boards></my-boards>",
-            directives: [boards_component_1.BoardsComponent],
-            providers: [board_service_1.BoardService]
+            selector: 'my-boards',
+            template: "<h2>Boards</h2>\n  <ul>\n  <li *ngFor=\"let board of boards\">\n  \t<p>{{board.id}}</p>\n  \t<p>{{board.name}}</p>\n  </li>\n  </ul>"
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [board_service_1.BoardService])
+    ], BoardsComponent);
+    return BoardsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.BoardsComponent = BoardsComponent;
+//# sourceMappingURL=boards.component.js.map
