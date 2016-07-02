@@ -4,13 +4,15 @@ import { BoardService } from './board.service';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { ThreadsComponent } from './threads.component';
 import { ThreadService } from './thread.service';
+import { PostsComponent } from './posts.component';
+import { PostService } from './post.service';
 
 @Component({
   selector: 'my-app',
   template: `<h1>{{title}}</h1>
   <router-outlet></router-outlet>`,
   directives: [ ROUTER_DIRECTIVES ],
-  providers: [ ROUTER_PROVIDERS, BoardService, ThreadService ]
+  providers: [ ROUTER_PROVIDERS, BoardService, ThreadService, PostService ]
 })
 
 @RouteConfig([
@@ -24,6 +26,11 @@ import { ThreadService } from './thread.service';
   path: '/:board_id/catalog',
   name: 'Threads',
   component: ThreadsComponent
+  },
+  {
+  path: '/posts/:thread_id',
+  name: 'Posts',
+  component: PostsComponent
   }
 ])
 

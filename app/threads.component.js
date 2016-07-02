@@ -11,26 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var thread_service_1 = require('./thread.service');
 var router_deprecated_1 = require('@angular/router-deprecated');
+var router_deprecated_2 = require('@angular/router-deprecated');
 var ThreadsComponent = (function () {
-    function ThreadsComponent(threadService, routeParams) {
+    function ThreadsComponent(router, threadService, routeParams) {
+        this.router = router;
         this.threadService = threadService;
         this.routeParams = routeParams;
     }
-    // getThreads() {
-    //   this.threadService.getThreads().then(threads => this.threads = threads);
-    // }
     ThreadsComponent.prototype.ngOnInit = function () {
         var _this = this;
         var board_id = +this.routeParams.get('board_id');
         this.threadService.getCatalog(board_id)
             .then(function (threads) { return _this.threads = threads; });
     };
+    ThreadsComponent.prototype.gotoThread = function (thread) {
+        var link = ['Posts', { thread_id: thread.id }];
+        this.router.navigate(link);
+    };
     ThreadsComponent = __decorate([
         core_1.Component({
             selector: 'my-threads',
-            template: "<h3>Threads</h3>\n\t<ul *ngFor=\"let thread of threads\">\n\t\t<li>{{ thread.subj }}</li>\n    <li>{{ thread.body }}</li>\n\t</ul>"
+            template: "<h3>Threads</h3>\n\t<ul *ngFor=\"let thread of threads\">\n\t\t<li (click)=\"gotoThread(thread)\">{{ thread.subj }}</li>\n    <li>{{ thread.body }}</li>\n\t</ul>"
         }), 
-        __metadata('design:paramtypes', [thread_service_1.ThreadService, router_deprecated_1.RouteParams])
+        __metadata('design:paramtypes', [router_deprecated_1.Router, thread_service_1.ThreadService, router_deprecated_2.RouteParams])
     ], ThreadsComponent);
     return ThreadsComponent;
 }());
