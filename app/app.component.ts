@@ -21,7 +21,7 @@ import { ThreadService } from './thread.service';
   useAsDefault: true
   },
   {
-  path: '/threads/:board_id',
+  path: '/:board_id/catalog',
   name: 'Threads',
   component: ThreadsComponent
   }

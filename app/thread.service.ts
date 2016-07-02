@@ -6,8 +6,8 @@ export class ThreadService {
   getThreads() {
     return Promise.resolve(THREADS);
   }
-  getThread(board_id: number) {
+  getCatalog(board_id: number) {
   return this.getThreads()
-             .then(threads => threads.filter(thread => thread.board_id === board_id)[0]);
+             .then(threads => threads.filter(thread => thread.board_id === board_id));
   }
 }

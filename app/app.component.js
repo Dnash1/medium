@@ -33,7 +33,7 @@ var AppComponent = (function () {
                 useAsDefault: true
             },
             {
-                path: '/threads/:board_id',
+                path: '/:board_id/catalog',
                 name: 'Threads',
                 component: threads_component_1.ThreadsComponent
             }

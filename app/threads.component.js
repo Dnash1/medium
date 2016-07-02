@@ -16,20 +16,19 @@ var ThreadsComponent = (function () {
         this.threadService = threadService;
         this.routeParams = routeParams;
     }
-    ThreadsComponent.prototype.getThreads = function () {
-        var _this = this;
-        this.threadService.getThreads().then(function (threads) { return _this.threads = threads; });
-    };
+    // getThreads() {
+    //   this.threadService.getThreads().then(threads => this.threads = threads);
+    // }
     ThreadsComponent.prototype.ngOnInit = function () {
         var _this = this;
         var board_id = +this.routeParams.get('board_id');
-        this.threadService.getThread(board_id)
-            .then(function (thread) { return _this.thread = thread; });
+        this.threadService.getCatalog(board_id)
+            .then(function (threads) { return _this.threads = threads; });
     };
     ThreadsComponent = __decorate([
         core_1.Component({
             selector: 'my-threads',
-            template: "<h3>Threads</h3>\n\t<ul *ngFor=\"let thread of threads\">\n\t\t<li>{{ thread.subj }}</li>\n\t</ul>"
+            template: "<h3>Threads</h3>\n\t<ul *ngFor=\"let thread of threads\">\n\t\t<li>{{ thread.subj }}</li>\n    <li>{{ thread.body }}</li>\n\t</ul>"
         }), 
         __metadata('design:paramtypes', [thread_service_1.ThreadService, router_deprecated_1.RouteParams])
     ], ThreadsComponent);

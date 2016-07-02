@@ -16,9 +16,9 @@ var ThreadService = (function () {
     ThreadService.prototype.getThreads = function () {
         return Promise.resolve(mock_threads_1.THREADS);
     };
-    ThreadService.prototype.getThread = function (board_id) {
+    ThreadService.prototype.getCatalog = function (board_id) {
         return this.getThreads()
-            .then(function (threads) { return threads.filter(function (thread) { return thread.board_id === board_id; })[0]; });
+            .then(function (threads) { return threads.filter(function (thread) { return thread.board_id === board_id; }); });
     };
     ThreadService = __decorate([
         core_1.Injectable(), 

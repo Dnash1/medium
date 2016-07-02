@@ -8,6 +8,7 @@ import { RouteParams } from '@angular/router-deprecated';
 	template: `<h3>Threads</h3>
 	<ul *ngFor="let thread of threads">
 		<li>{{ thread.subj }}</li>
+    <li>{{ thread.body }}</li>
 	</ul>`
 })
 
@@ -17,12 +18,12 @@ export class ThreadsComponent implements OnInit {
   constructor(
     private threadService: ThreadService,
     private routeParams: RouteParams) { }
-  getThreads() {
-    this.threadService.getThreads().then(threads => this.threads = threads);
-  }
+  // getThreads() {
+  //   this.threadService.getThreads().then(threads => this.threads = threads);
+  // }
   ngOnInit() {
     let board_id = +this.routeParams.get('board_id');
-    this.threadService.getThread(board_id)
-      .then(thread => this.thread = thread);
+    this.threadService.getCatalog(board_id)
+      .then(threads => this.threads = threads);
   }
 }
