@@ -1,51 +1,21 @@
 {
-	"boards": {
-		"technology": {
-			"name": "Technology",
-			"id": "1",
-			"icon": ""
-		}
-	},
+	"boards": [
+		  {"board_id": 1, "name": "'Technology'"},
+		  {"board_id": 2, "name": "'Games'"},
+		  {"board_id": 3, "name": "'Politics'"}
+	],
 
-	"users": {
-		"1": {
-			"id": "1",
-			"names": {
+	"threads": [
+		{"id": 1, "subj": "'Tech stuff'", "body": "'Poop'", "board_id": 1},
+		{"id": 2, "subj": "'Other stuff'", "body": "'Poop'", "board_id": 2},
+		{"id": 3, "subj": "'Things and stuff'", "body": "'Poop'", "board_id": 3},
+		{"id": 4, "subj": "'Hmmmm'", "body": "'Shmee'", "board_id": 1}
+	],
 
-				},
-			"emails": {
-
-				},
-			"flags": {
-
-				},
-			"ip": ""
-		}
-	},
-
-	"threads": {
-		"1": {
-			"id": "1",
-			"subject": "poo",
-			"img": "",
-			"board_id": "",
-			"user_id": "",
-			"body": "loo",
-			"flag": ""
-		}
-	},
-
-	"posts": {
-		"1": {
-			"id": "1",
-			"thread_id": "",
-			"user_id": "",
-			"body": "",
-			"img": "",
-			"replied_to": {
-
-				},
-			"flag": ""
-		}
-	}
+	"posts": [
+		  {"id": 1, "subj": "Reply", "body": "utter poop", "thread_id": 1},
+		  {"id": 2, "subj": "'Cool thangs'", "body": "'no'", "thread_id": 2},
+		  {"id": 3, "subj": "'POOPY SHMEE'", "body": "'fererer'", "thread_id": 3},
+		  {"id": 4, "subj": "'Laaaaaa'", "body": "'Dedaaaa'", "thread_id": 1}
+	]
 }
